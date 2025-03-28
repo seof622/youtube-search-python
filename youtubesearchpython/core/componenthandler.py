@@ -3,6 +3,8 @@ from typing import Union, List
 
 def getValue(source: dict, path: List[str]) -> Union[str, int, dict, None]:
     value = source
+    if not value:
+        return None
     for key in path:
         if type(key) is str:
             if key in value.keys():
@@ -30,4 +32,3 @@ def getVideoId(videoLink: str) -> str:
         return videoLink[videoLink.index('v=') + 2: videoLink.index('&')]
     else:
         return videoLink
-
